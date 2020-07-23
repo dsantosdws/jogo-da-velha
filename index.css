@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+    display: flex;
+    width: 110px;
+    margin: 0;
+}
+
+ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    border: 1px solid #000000;
+    width: 29px;
+    height: 29px;
+    text-align: center;
+    font-size: 25px;
+}
+

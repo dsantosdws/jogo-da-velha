@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>Sua Vez: X</h1>
+
+</body>
+
+<script src="game.js"></script>
+<script>
+
+   const controlGame = new Game();
+    
+    buildGame();    
+
+    function buildGame() {
+        var game = document.querySelector('body');
+
+        for (let i = 0; i < 3; i++) {
+            let line = buildLine();
+            game.append(line);
+        }
+    }
+
+    function buildLine() {
+        var divElement = document.createElement('div');
+
+        for (var i = 0; i < 3; i++) {
+            var boxElement = buildBox()
+            divElement.appendChild(boxElement);
+        }
+
+        return divElement;
+    }
+
+    function buildBox() {
+        var ulElement = document.createElement('ul');
+        var liElement = document.createElement('li');
+
+        liElement.addEventListener("click", () => handleClickBox(event));
+        ulElement.appendChild(liElement);
+
+        return ulElement;
+    }
+
+    function handleClickBox(elementClicked) {        
+        elementClicked.target.innerText = controlGame.Player;
+        var h1Element = document.querySelector('h1');
+        
+        controlGame.setNextPlayer();
+
+        h1Element.innerText = "Sua vez: " + controlGame.Player;
+    }
+</script>
+
+</html>
